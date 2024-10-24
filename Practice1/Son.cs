@@ -14,9 +14,9 @@ namespace Practice1
 
         public Son() 
         {
-            field1S = "Field 1 son";
-            field2S = "Field 2 son";
-            field3S = "Field 3 son";
+            field1S = "Field 1 Son";
+            field2S = "Field 2 Son";
+            field3S = "Field 3 Son";
 
             field1F = "Field 1 Father";
             field2F = "Field 2 Father";
@@ -43,7 +43,26 @@ namespace Practice1
 
         public void ChangeValue()
         {
+            Menu.PrintMenu("Change field 1 Son");
+            field1S = Menu.GetInputString();
+            Menu.PrintMenu("Change field 2 Son");
+            field2S = Menu.GetInputString();
+            Menu.PrintMenu("Change field 3 Son");
+            field3S = Menu.GetInputString();
 
+            Menu.PrintMenu("Change field 1 Father");
+            field1F = Menu.GetInputString();
+            Menu.PrintMenu("Change field 2 Father");
+            field2F = Menu.GetInputString();
+            Menu.PrintMenu("Change field 3 Father");
+            SetField3F(Menu.GetInputString());
+
+            Menu.PrintMenu("Change field 1 Grandfather");
+            field1G = Menu.GetInputString();
+            Menu.PrintMenu("Change field 2 Grandfather");
+            field2G = Menu.GetInputString();
+            Menu.PrintMenu("Change field 3 Grandfather");
+            SetField3G(Menu.GetInputString());
 
             PrintAllValues();
         }

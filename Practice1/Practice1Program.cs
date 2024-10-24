@@ -4,65 +4,49 @@ const int EXIT_NUMBER = 3;
 
 bool exit;
 int option;
-string? input;
 
-Son son = new Son();
+Son son = new();
 
 do
 {
     exit = false;
 
-    PrintMenu();
-    option = GetInputParsedInt();
+    Console.Clear();
+    Menu.PrintMenu($"1 - Show values\n" +
+        $"2 - Modify Values\n" +
+        $"{EXIT_NUMBER} - Exit\n" +
+        $"Please select an option:");
+    option = Menu.GetInputParsedInt();
 
-    if (option != EXIT_NUMBER) ManageOptions(option);
-    
+    if (option != EXIT_NUMBER)
+    { 
+        ManageOptions(option);
+    }
+
     if (option == EXIT_NUMBER) exit = true;
 
 } while (!exit);
 
 
-void PrintMenu()
+void ManageOptions(int opt)
 {
-    Console.Clear();
-    Console.WriteLine("1 - Show values\n" +
-        "2 - Modify Values\n" +
-        $"{EXIT_NUMBER} - Exit\n" +
-        "Please select an option:");
-    Console.Write("=>");
-}
-
-void PrintFarewell()
-{
-    Console.WriteLine("Do you want to execute another action?\n" +
-        $"Press {EXIT_NUMBER} to exit if not, press any other key if yes:");
-    Console.Write("=>");
-    option = GetInputParsedInt();
-}
-
-void ManageOptions(int option)
-{
-    switch (option)
+    switch (opt)
     {
-        case 1: son.PrintAllValues();
+        case 1:
+            son.PrintAllValues();
             break;
 
-        case 2: //son.ChangeValue();
+        case 2: son.ChangeValue();
             break;
 
-        default: Console.WriteLine("Wrong number, try again.");
-
+        default:
+            Console.WriteLine("Wrong number, try again.");
             break;
     }
 
-    PrintFarewell();
-}
-
-int GetInputParsedInt()
-{
-    input = Console.ReadLine()?.Trim();
-
-    if (int.TryParse(input, out option)) return int.Parse(input);
-    else return 0;
+    Menu.PrintMenu("Do you want to execute another action?\n" +
+        $"Press {EXIT_NUMBER} to exit if not, press any other key if yes:");
+    option = Menu.GetInputParsedInt();
 
 }
+
