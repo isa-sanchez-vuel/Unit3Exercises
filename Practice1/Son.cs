@@ -12,7 +12,7 @@ namespace Practice1
         protected string field2S;
         private string field3S;
 
-        Son() 
+        public Son() 
         {
             field1S = "Field 1 son";
             field2S = "Field 2 son";
@@ -28,16 +28,24 @@ namespace Practice1
 
         }
 
-        void PrintAllValues()
+        public void PrintAllValues()
         {
-
+            Console.WriteLine($"- {field1S}\n" +
+                $"- {field2S}\n" +
+                $"- {field3S}\n" +
+                $"- {field1F}\n" +
+                $"- {field2F}\n" +
+                $"- {GetField3F()}\n" +
+                $"- {field1G}\n" +
+                $"- {field2G}\n" +
+                $"- {GetField3G()}\n");
         }
 
-        void ChangeValue()
+        public void ChangeValue()
         {
 
 
-            //PrintAllValues();
+            PrintAllValues();
         }
 
     }
