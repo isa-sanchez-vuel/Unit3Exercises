@@ -18,11 +18,18 @@ namespace Practice1
 
         public static int GetInputParsedInt()
         {
-            String input = Console.ReadLine()?.Trim();
+            string input = Console.ReadLine()?.Trim();
 
-            if (int.TryParse(input, out int option)) return int.Parse(input);
+            if (int.TryParse(input, out _)) return int.Parse(input);
             else return 0;
+        }
 
+        public static decimal GetInputParsedDecimal()
+        {
+            string input = Console.ReadLine()?.Trim().Replace(".", ",");
+
+            if (decimal.TryParse(input, out _)) return decimal.Parse(input);
+            else return 0;
         }
 
         public static string GetInputString()
