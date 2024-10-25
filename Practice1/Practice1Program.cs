@@ -4,15 +4,21 @@ using System.Text;
 
 const int EXIT_NUMBER = 3;
 
+Son son;
 bool exit;
 int option;
 
-Son son = new();
+Initialize();
+OpenMenu();
 
-Console.OutputEncoding = Encoding.UTF8;
-Console.InputEncoding = Encoding.UTF8;
+void Initialize()
+{
+    son = new();
+    Console.OutputEncoding = Encoding.UTF8;
+    Console.InputEncoding = Encoding.UTF8;
+}
 
-do
+void OpenMenu()
 {
     exit = false;
 
@@ -24,14 +30,14 @@ do
     option = Menu.GetInputParsedInt();
 
     if (option != EXIT_NUMBER)
-    { 
+    {
         ManageOptions(option);
     }
 
     if (option == EXIT_NUMBER) exit = true;
 
-} while (!exit);
-
+    if (!exit) OpenMenu();
+}
 
 void ManageOptions(int opt)
 {
@@ -41,7 +47,8 @@ void ManageOptions(int opt)
             son.PrintAllValues();
             break;
 
-        case 2: son.ChangeValue();
+        case 2:
+            son.ChangeValue();
             break;
 
         default:
@@ -54,4 +61,3 @@ void ManageOptions(int opt)
     option = Menu.GetInputParsedInt();
 
 }
-
