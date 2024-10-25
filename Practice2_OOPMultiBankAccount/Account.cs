@@ -8,16 +8,24 @@ namespace Practice2_OOPMultiBankAccount
 {
     internal class Account
     {
-        string accountId;
+        string accountNumber;
         string pin;
         string ownerName;
+
         List<Movement> movements = new();
+        string iban;
 
         public Account(string id, string pin, string owner) 
         {
-            accountId = id;
+            accountNumber = id;
             this.pin = pin;
             ownerName = owner;
         }
+
+        public void CreateIban(string country, string bankId, string bankControl, string sucursal)
+        {
+            iban = country + bankControl + bankId + sucursal + bankControl + accountNumber;
+        }
+
     }
 }

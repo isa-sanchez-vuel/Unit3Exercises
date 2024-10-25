@@ -8,14 +8,30 @@ namespace Practice2_OOPMultiBankAccount
 {
     internal class Bank
     {
-        string name;
+        string entityName;
         string bankId;
+        string controlNum;
+        string officeId;
+        string countryCode;
         List<Account> accounts = new();
 
-        public Bank(string name, string id) 
+
+        public Bank(string name, string country, string id, string control, string officeNumber) 
         {
-            this.name = name;
+            entityName = name;
             bankId = id;
+            controlNum = control;
+            officeId = officeNumber;
+            countryCode = country;
+        }
+
+        public bool CreateAccount(string acId, string pin, string ownerName)
+        {
+            Account account = new(acId, pin, ownerName);
+            account.CreateIban(countryCode, bankId, controlNum, officeId);
+            accounts.Add(account);
+
+            return true;
         }
     }
 }
