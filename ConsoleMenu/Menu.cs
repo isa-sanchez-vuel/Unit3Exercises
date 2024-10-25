@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Practice1
+﻿namespace ConsoleMenu
 {
+    using System;
+
     public class Menu
     {
 
@@ -14,7 +10,7 @@ namespace Practice1
             Console.WriteLine(message);
             Console.Write("=>");
         }
-        
+
 
         public static int GetInputParsedInt()
         {
@@ -37,4 +33,6 @@ namespace Practice1
             return Console.ReadLine()?.Trim();
         }
     }
+
+
 }

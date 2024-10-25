@@ -1,4 +1,6 @@
 ﻿using Practice1;
+using ConsoleMenu;
+using System.Text;
 
 const int EXIT_NUMBER = 3;
 
@@ -6,6 +8,9 @@ bool exit;
 int option;
 
 Son son = new();
+
+Console.OutputEncoding = Encoding.UTF8;
+Console.InputEncoding = Encoding.UTF8;
 
 do
 {
