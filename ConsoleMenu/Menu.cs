@@ -11,6 +11,10 @@
             Console.Write("=>");
         }
 
+        public static void PrintError(string message)
+        {
+            Console.Error.WriteLine("ERROR:" + message);
+        }
 
         public static int GetInputParsedInt()
         {
@@ -33,6 +37,5 @@
             return Console.ReadLine()?.Trim();
         }
     }
-
 
 }

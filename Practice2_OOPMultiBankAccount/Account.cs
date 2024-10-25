@@ -8,12 +8,15 @@ namespace Practice2_OOPMultiBankAccount
 {
     internal class Account
     {
+        string ownerName;
+        string iban;
+
         string accountNumber;
         string pin;
-        string ownerName;
+
+        decimal totalMoney;
 
         List<Movement> movements = new();
-        string iban;
 
         public Account(string id, string pin, string owner) 
         {
@@ -25,6 +28,26 @@ namespace Practice2_OOPMultiBankAccount
         public void CreateIban(string country, string bankId, string bankControl, string sucursal)
         {
             iban = country + bankControl + bankId + sucursal + bankControl + accountNumber;
+        }
+
+        public string GetId()
+        {
+            return accountNumber;
+        }
+
+        public string GetPin()
+        {
+            return accountNumber;
+        }
+
+        public string GetName()
+        {
+            return ownerName;
+        }
+
+        public string GetIban()
+        {
+            return accountNumber;
         }
 
     }

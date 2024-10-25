@@ -33,5 +33,17 @@ namespace Practice2_OOPMultiBankAccount
 
             return true;
         }
+
+        public Account CheckAccount(string accountId, string pin)
+        {
+            if (accountId.Length == 10 && pin.Length == 4)
+            {
+                foreach (Account account in accounts)
+                {
+                    if (accountId.Equals(account.GetId()) && pin.Equals(account.GetPin())) return account;
+                }
+            }
+            return null;
+        }
     }
 }
